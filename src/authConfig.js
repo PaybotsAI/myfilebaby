@@ -10,10 +10,11 @@ const msalConfig = {
 //        authority: "https://login.microsoftonline.com/73bc0c96-da02-4596-acb7-953c57ed55ac",
 //       redirectUri: "https://dev-my.file.baby"
 //      test to log in using file baby tenant
- //      authority: "https://login.microsoftonline.com/1cb7b2f8-2a75-4a9c-82a0-43d42a2e5b5e",
-        clientId: "247f5d06-8776-4fa6-9cc4-390826e2704c", // Your Application (client) ID
-        authority: "https://filebaby.b2clogin.com/filebaby.onmicrosoft.com/B2C_1_SignUpOrSignIn", // This includes your tenant and policy information
-        redirectUri: "https://dev-my.file.baby", // Your redirect URI
+        clientId: "247f5d06-8776-4fa6-9cc4-390826e2704c",
+//      authority: "https://login.microsoftonline.com/1cb7b2f8-2a75-4a9c-82a0-43d42a2e5b5e",
+        authority: "https://filebaby.b2clogin.com/filebaby.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_SignUpOrSignIn",
+        redirectUri: "https://dev-my.file.baby"
+
     },
     cache: {
         cacheLocation: "sessionStorage",
