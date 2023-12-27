@@ -8,6 +8,8 @@ import ManifestRetriever from "./ManifestRetriever";
 import caifoj from "./cai-foj-800.png";
 import { MsalProvider, useMsal, useIsAuthenticated } from "@azure/msal-react";
 import msalInstance from "./authConfig";
+import Logout from "./Logout";
+
 
 function SignInButton() {
     const { instance } = useMsal();
@@ -36,6 +38,7 @@ function AppContent() {
                         <TenantFileGallery userName={userName} />
                         <ManifestGenerator />
                         <FileUploadPage userName={userName} />
+                        <Logout />
                     </p>
                 ) : (
                     <SignInButton />
