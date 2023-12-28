@@ -7,7 +7,7 @@ function TenantFileGallery({ userName }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const containerUrl = `https://filebaby.blob.core.windows.net/filebabyblob`;
+  const containerUrl = `https://claimed.at.file.baby/filebabyblob`;
 
   const fetchFiles = useCallback(async () => {
     if (!tenant) {

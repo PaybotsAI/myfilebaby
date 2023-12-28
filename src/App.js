@@ -41,7 +41,7 @@ function AppContent() {
                         <p className={"Logout"}><Logout /></p>
                     </p>
                 ) : (
-                    <SignInButton />
+                    <p className={"SignIn"}><SignInButton /></p>
                 )}
             </header>
             <footer className="footer">
