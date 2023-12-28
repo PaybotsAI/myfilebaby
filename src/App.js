@@ -14,7 +14,7 @@ import Logout from "./Logout";
 function SignInButton() {
     const { instance } = useMsal();
     const handleLogin = () => {
-        instance.loginPopup().catch(e => {
+        instance.loginRedirect().catch(e => {
             console.error(e);
         });
     };
