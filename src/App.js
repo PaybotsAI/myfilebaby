@@ -38,7 +38,7 @@ function AppContent() {
                         <TenantFileGallery userName={userName} />
                         <ManifestGenerator />
                         <FileUploadPage userName={userName} />
-                        <Logout />
+                        <p className={"Logout"}><Logout /></p>
                     </p>
                 ) : (
                     <SignInButton />

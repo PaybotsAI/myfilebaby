@@ -103,6 +103,9 @@ label {
 .App {
   text-align: center;
 }
+.Logout {
+  margin-top:40px;
+}
 
 .App-logo {
   height: 40vmin;
