@@ -3,7 +3,7 @@ import React from 'react';
 
 const Logout = () => {
     // Define your Azure AD tenant ID and the post logout redirect URI
-    const tenantId = 'cecf9ab2-8682-4ad6-9f85-3812fe5efba0';
+    const tenantId = '73bc0c96-da02-4596-acb7-953c57ed55ac';
     const postLogoutRedirectUri = 'https://file.baby'; // Adjust as needed
 
     // Define the function to handle the logout
