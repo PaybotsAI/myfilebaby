@@ -8,6 +8,7 @@ import ManifestRetriever from "./ManifestRetriever";
 import caifoj from "./cai-foj-800.png";
 import { MsalProvider, useMsal, useIsAuthenticated } from "@azure/msal-react";
 import msalInstance from "./authConfig";
+import Imagebot from "./Imagebot";
 
 function SignInButton() {
     const { instance } = useMsal();
@@ -30,8 +31,10 @@ function AppContent() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} alt="my.file.baby... MINE!" className="responsive"/>
+            </header>
                 {isAuthenticated || isDevelopment ? (
                     <div>
+                        <Imagebot userName={userName} />
                         <ManifestRetriever />
                         <TenantFileGallery userName={userName} />
                         <ManifestGenerator />
@@ -40,7 +43,7 @@ function AppContent() {
                 ) : (
                     <SignInButton />
                 )}
-            </header>
+
             <footer className="footer">
                 <p>
                     <a href="https://file.baby">About File Baby</a>
@@ -52,7 +55,7 @@ function AppContent() {
                     To inspect your content, use <a href="https://contentcredentials.org/verify" target="_blank" rel="noopener noreferrer">contentcredentials.org/verify</a>
                 </p>
                 <p>
-                    &copy; 2023-2024, <a href="https://friendsofjustin.knowbots.org">Friends of Justin</a>
+                    &copy; Copyright 2024, <a href={"https://file.baby"} alt={"File Baby"}>File Baby</a> in partnership with <a href="https://friendsofjustin.knowbots.org">Friends of Justin</a>, All Rights Reserved
                 </p>
             </footer>
         </div>
