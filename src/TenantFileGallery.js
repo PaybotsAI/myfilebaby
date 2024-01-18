@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './TenantFileGallery.css';
-import useMobileSize from './lib/useMobileSize';
+
 import { Button } from '@material-tailwind/react';
 import { GoShare } from "react-icons/go";
 import { MdOutlineVerified } from "react-icons/md";
@@ -10,7 +10,7 @@ function TenantFileGallery({ userName }) {
   const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const isMobile = useMobileSize()
+  
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const containerUrl = `https://claimed.at.file.baby/filebabyblob`;
 

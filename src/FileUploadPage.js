@@ -119,7 +119,7 @@ function FileUploadPage({ userName }) {
     }, [savedToFileBaby]);
 
     return (
-        <div>
+        <div className='px-2'>
             <h1>2. Upload Manifest and Image</h1>
             <form onSubmit={handleSubmit}>
                 <div>

@@ -53,7 +53,7 @@ const Chatbot = () => {
     };
 
     return (
-        <div>
+        <div className='px-2'>
             <h1>Prompt</h1>
             <form onSubmit={handleSubmit}>
                 <input
