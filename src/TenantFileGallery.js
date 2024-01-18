@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './TenantFileGallery.css';
+import useMobileSize from './lib/useMobileSize';
+import { Button } from '@material-tailwind/react';
+import { GoShare } from "react-icons/go";
+import { MdOutlineVerified, MdVerified } from "react-icons/md";
 
 function TenantFileGallery({ userName }) {
   const [tenant, setTenant] = useState('');
   const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const isMobile = useMobileSize()
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const containerUrl = `https://claimed.at.file.baby/filebabyblob`;
 
   const fetchFiles = useCallback(async () => {
@@ -69,6 +74,9 @@ function TenantFileGallery({ userName }) {
       console.error('Failed to copy:', err);
     }
   };
+  const handleVerify = (url) => {
+    window.open(url);
+  }
 
   const audioPlaceholder = './audio_placeholder.png'; // Path to your audio placeholder image
 
@@ -96,21 +104,36 @@ function TenantFileGallery({ userName }) {
           {error && <p className="error">{error}</p>}
         </div>
         <div className="file-gallery">
-          {files.map((file, index) => (
-              <div key={index} className="file-item">
-                <a href={file.url} target="_blank" rel="noopener noreferrer">
-                  <img src={getFileThumbnail(file)} alt={file.name} />
-                  <p>{file.name}</p>
-                </a>
-                <p>
-                  <a href={file.verifyUrl} target="_blank" rel="noopener noreferrer">
+        {files.map((file, index) => (
+          <div
+            key={index}
+            className="file-item relative"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            onClick={() => setHoveredIndex(index)}
+          >
+            <a href={file.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center text-center no-underline">
+              <img className="w-full h-full object-cover" src={getFileThumbnail(file)} alt={file.name} />
+              <p>{file.name.substring(0, 20) + '...'}</p>
+            </a>
+            {hoveredIndex === index && (
+              <div className="buttons-container absolute bottom-0 left-0 right-0 flex justify-center ">
+                <div className="bg-gray-200 w-full flex justify-center p-2 rounded-t-lg">
+                  <Button onClick={() => handleVerify(file.verifyUrl)} className="mr-1 p-2 bg-blue-300 flex items-center">
+                    <MdVerified className="mr-1" size={20}/>
                     Verify
-                  </a>
-                </p>
-                <button onClick={() => handleShareClick(file.url)}>Share</button>
+                  </Button>
+                  <Button onClick={() => handleShareClick(file.url)} className="ml-1 p-2 bg-red-400 flex items-center">
+                    <GoShare className="mr-1" size={20}/>
+                    <span className='text-sm'>Share</span>
+                  </Button>
+                </div>
               </div>
-          ))}
-        </div>
+            )}
+          </div>
+        ))}
+      </div>
+    
       </div>
   );
 }

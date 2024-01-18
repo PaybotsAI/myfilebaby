@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Apply a general styling to the body for a nice background */
 body {
   font-family: 'Arial', sans-serif;
