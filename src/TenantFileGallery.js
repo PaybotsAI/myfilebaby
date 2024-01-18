@@ -3,7 +3,7 @@ import './TenantFileGallery.css';
 import useMobileSize from './lib/useMobileSize';
 import { Button } from '@material-tailwind/react';
 import { GoShare } from "react-icons/go";
-import { MdOutlineVerified, MdVerified } from "react-icons/md";
+import { MdOutlineVerified } from "react-icons/md";
 
 function TenantFileGallery({ userName }) {
   const [tenant, setTenant] = useState('');
@@ -120,7 +120,7 @@ function TenantFileGallery({ userName }) {
               <div className="buttons-container absolute bottom-0 left-0 right-0 flex justify-center ">
                 <div className="bg-gray-200 w-full flex justify-center p-2 rounded-t-lg">
                   <Button onClick={() => handleVerify(file.verifyUrl)} className="mr-1 p-2 bg-blue-300 flex items-center">
-                    <MdVerified className="mr-1" size={20}/>
+                    <MdOutlineVerified className="mr-1" size={20}/>
                     Verify
                   </Button>
                   <Button onClick={() => handleShareClick(file.url)} className="ml-1 p-2 bg-red-400 flex items-center">
