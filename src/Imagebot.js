@@ -110,7 +110,7 @@ const Imagebot = ({ userName }) => {
     };
 
     return (
-        <div>
+        <div className='px-2'>
             <h1>Image Generator</h1>
             <form onSubmit={handleSubmit}>
                 <input
